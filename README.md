@@ -24,4 +24,5 @@ Notes:
 - The estimated peak count does not include sky and bias levels. The typical bias level is 500-600 ADU.
 
 
-Author: Akihiko Fukui
+Author: Akihiko Fukui (The University of Tokyo)
+(Email: afukui @ eps.s.u-tokyo.ac.jp)
