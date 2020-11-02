@@ -18,7 +18,7 @@ optional arguments:
 
 
 Notes:
-- This script estimates the peak count and FWHM based on images taken under a condistion of airmass=1.1 and natural seeing ~ 0.8".
+- This script estimates the peak count and FWHM based on images taken under the condistion that airmass was 1.1 and natural seeing was ~0.8".
   The actual peak count and FWHM may vary depending on airmass and natural seeing.
 - The z-band data were taken with a tentative CCD camera, which is planned to be replaced with a new one which has a higher sensitivity.
 - The estimated peak count does not include sky and bias levels. The typical bias level is 500-600 ADU.
