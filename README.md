@@ -12,7 +12,7 @@ optional arguments:
   
   --mag MAG               : SDSS magnitude
   
-  --focus {1,2,3,4,5,6}   : Focus offset value in mm (1,2,3,4,5,or 6)
+  --focus {0,1,2,3,4,5,6} : Focus offset value in mm (0,1,2,3,4,5,or 6)
   
   --exp EXP               : Exposure time in sec
 
@@ -20,6 +20,7 @@ optional arguments:
 Notes:
 - This script estimates the peak count and FWHM based on images taken under the condistion that airmass was 1.1 and natural seeing was ~0.8".
   The actual values may vary depending on airmass, sky transparency, and natural seeing.
+- Although this script accepts only integers between 0 and 6 as a focus value, decimal numbers are also acceptable to the actual observations.
 - The z-band data were taken with a tentative CCD camera, which is planned to be replaced with a new one which has a higher sensitivity.
 - The estimated peak count does not include sky and bias levels. The typical bias level is 500-600 ADU.
 
