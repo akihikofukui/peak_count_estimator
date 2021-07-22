@@ -2,7 +2,7 @@ import numpy as np
 import argparse
 
 parser = argparse.ArgumentParser(description=\
-'## Peak count estimator for MuSCAT3 ver. 2020 Nov. 17 ##')
+'## Peak count estimator for MuSCAT3 ver. 2021 Jul. 22 ##')
 
 parser.add_argument('--band', choices=['g', 'r', 'i', 'z'],\
                      help='band name (g, r, i, or z)', required=True)
@@ -47,14 +47,18 @@ fwhm.append([ 3.0, 3.6       , 4.36333333, 6.81333333,10.76      ,13.35333333,17
 
 #-------------
 # Gain [e-/ADU]
-gain = np.array((1.9, 1.88, 1.8, 1.7))
+gain = np.array((1.9, 1.88, 1.8, 2.0)) # z-band for Sophia
+#gain = np.array((1.9, 1.88, 1.8, 1.7))
 
 #-------------
 
 
 bandnum = {'g': 0, 'r': 1, 'i': 2, 'z': 3, 'zs': 3}
 
-logpeak = b[bandnum[args.band]][args.focus] - 0.4*args.mag
+if bandnum[args.band]==3:
+    logpeak = b[bandnum[args.band]][args.focus] - 0.4*(args.mag-1)
+else:
+    logpeak = b[bandnum[args.band]][args.focus] - 0.4*args.mag
 peak = 10**logpeak * args.exp / 60.
 
 print('\n')
@@ -72,6 +76,6 @@ print('=================================================\n')
 print('Note:')
 print('- The above values are estimated based on images taken under the condistion that airmass was 1.1 and natural seeing was ~0.8". The actual values may vary depending on airmass, sky transparency, and natural seeing.')
 print('- Although this script accepts only integers between 0 and 6 as a focus value, decimal numbers are also acceptable to the actual observations.')
-print('- The z-band data were taken with a tentative CCD camera, which is planned to be replaced with a new one which has a higher sensitivity.')
+#print('- The z-band data were taken with a tentative CCD camera, which is planned to be replaced with a new one which has a higher sensitivity.')
 print('- The estimated peak count does not include sky and bias levels. The typical bias level is 500-600 ADU.')
 print('\n')
